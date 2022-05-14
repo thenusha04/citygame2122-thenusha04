@@ -6,7 +6,6 @@ import java.awt.*;
 
 
 public class GameView extends UserView {
-    //  private Image background;
     private Spaceship spaceship;
     GameLevel currentLevel;
     Game game;
@@ -16,15 +15,15 @@ public class GameView extends UserView {
         super(w, width, height);
         currentLevel = w;
         spaceship = w.getSpaceship();
-        // this.spaceship = spaceship;
         this.game = game;
-        //background = new ImageIcon("data/background.gif").getImage();
+
 
 
     }
 
 
     @Override
+    //gets the spaceship to the current level being played
     public void setWorld(World world) {
         super.setWorld(world);
         currentLevel = (GameLevel) world;
@@ -38,10 +37,12 @@ public class GameView extends UserView {
     }
 
     @Override
+    //shows the points collected
     protected void paintForeground(Graphics2D g) {
         g.setColor(Color.white);
         g.drawString("Points:" + spaceship.getAlien(), 50, 35);
         g.setFont(new Font("Castellar", Font.BOLD, 15));
+        //shows the lives bar
         for (int i = 0; i < spaceship.getLives(); i++) {
             try {
                 g.drawImage(new ImageIcon("data/hrt.png").getImage(), (i + 1) * 30, 35,30, 35, this);
