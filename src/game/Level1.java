@@ -38,7 +38,7 @@ public class Level1 extends GameLevel {
         platform.setPosition(new Vec2(-9.5f, -5.5f));
         platform.addImage(new BodyImage("data/planet.png", 3));
 
-
+//location of platform and image used
         StaticBody platform1 = new StaticBody(this, platformShape);
         platform1.setPosition(new Vec2(-6f, -3.5f));
         platform1.addImage(new BodyImage("data/planet.png", 3));
@@ -118,6 +118,7 @@ public class Level1 extends GameLevel {
     }
 
     @Override
+    // for the level to be complete the spaceship must collect five aliens
     public boolean isComplete() {
         System.out.println(getSpaceship().getAlien());
         if (getSpaceship().getAlien() >= 5)

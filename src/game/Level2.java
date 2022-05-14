@@ -38,7 +38,7 @@ public class Level2 extends GameLevel {
         platform.setPosition(new Vec2(-9.5f, -5.5f));
         platform.addImage(new BodyImage("data/clouds.png", 2));
 
-
+//location of platforms and image used
         StaticBody platform1 = new StaticBody(this, platformShape);
         platform1.setPosition(new Vec2(-6f, -3.5f));
         platform1.addImage(new BodyImage("data/clouds.png", 2));
@@ -64,6 +64,7 @@ public class Level2 extends GameLevel {
         //populates the World - add platforms, Student, etc.
         //(don't add anything related to the view)
         // make the character
+        //location of asteroids starting point and gravity used
         Asteroid asteroid = new Asteroid(this);
         asteroid.setPosition(new Vec2(getSpaceship().getxpos(), 7));
         asteroid.setGravityScale(0.1f);
@@ -91,23 +92,23 @@ public class Level2 extends GameLevel {
 
         alien alien2 = new alien(this);
         alien2.setPosition(new Vec2(-5, -1));
-        //alien2.setGravityScale(0);
+
 
         alien alien3 = new alien(this);
         alien3.setPosition(new Vec2(-10, -1));
-        //  alien3.setGravityScale(0);
+
 
         alien alien4 = new alien(this);
         alien4.setPosition(new Vec2(6, 3));
-        // alien4.setGravityScale(0);
+
 
         alien alien5 = new alien(this);
         alien5.setPosition(new Vec2(1, 3));
 
         alien alien = new alien(this);
         alien.setPosition(new Vec2(10, 3));
-        //alien.setGravityScale(0);
 
+      //location of coins
         coins coins2 = new coins(this);
         coins2.setPosition(new Vec2(5, 3));
         //alien2.setGravityScale(0);
@@ -118,7 +119,7 @@ public class Level2 extends GameLevel {
 
         coins coins4 = new coins(this);
         coins4.setPosition(new Vec2(-7, 0));
-        // alien4.setGravityScale(0);
+
 
         coins coins5 = new coins(this);
         coins5.setPosition(new Vec2(2, 4));
@@ -131,7 +132,7 @@ public class Level2 extends GameLevel {
     public void  stopMusic() { gameMusic.stop(); }
     @Override
     public boolean isComplete() {
-
+        // for the level to be complete the spaceship must collect five aliens and coins
         if (getSpaceship().getAlien()>=5 && getSpaceship().getCoins()>=5)
             return true;
         else
