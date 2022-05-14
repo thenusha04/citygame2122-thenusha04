@@ -36,7 +36,7 @@ public class GameSaverLoader {
        // it states the level the spaceship is at once it is saved
             writer.write(level.getName() + "\n");
 
-
+//collects the position of dynamic classes such as spaceship, laserball and asteroids
             for (int i = 0; i < level.getDynamicBodies().size(); i++) {
                 DynamicBody b = level.getDynamicBodies().get(i);
 
@@ -45,21 +45,22 @@ public class GameSaverLoader {
                 } else if (b instanceof Laserball) {
                     writer.write("Laserball," + b.getPosition().x + "," + b.getPosition().y + "\n");
 
-                } /*else if (b instanceof alien) {
-                    writer.write("alien," + b.getPosition().x + "'" + b.getPosition().y + "\n");
 
-                } */else if(b instanceof Asteroid){
+                } else if(b instanceof Asteroid){
                     writer.write("Asteroid," + b.getPosition().x + "'" + b.getPosition().y + "\n");
                 }
             }
             for (int i = 0; i < level.getStaticBodies().size(); i++) {
                 StaticBody b = level.getStaticBodies().get(i);
-
+            // collects the postion of the static bodies
                 if (b instanceof coins) {
                     writer.write("coins," + b.getPosition().x + "'" + b.getPosition().y + "\n");
                 }
                 else if (b instanceof alien2 ){
                     writer.write("alien2," + b.getPosition().x + "'" + b.getPosition().y + "\n");
+
+                } else if (b instanceof alien) {
+                    writer.write("alien," + b.getPosition().x + "'" + b.getPosition().y + "\n");
 
                 }
 
@@ -115,11 +116,13 @@ public class GameSaverLoader {
                 if (tokens[0].equals("alien")) {
                     alien alien = new alien(level);
                     alien.setPosition(new Vec2(Float.parseFloat(tokens[1]), Float.parseFloat(tokens[2])));
-
+                //puts the alien back in the postion as it was saved as and level
                 } else if (tokens[0].equals("Asteroid")) {
                     Asteroid asteroid = new Asteroid(level);
                     asteroid.setPosition(new Vec2(Float.parseFloat(tokens[1]), Float.parseFloat(tokens[2])));
+                    //puts the asteroid back in the postion as it was saved as and level
                 } else if (tokens[0].equals("Spaceship")) {
+                    //puts the alien back in the postion as it was saved as and level
                     Spaceship Spaceship = new Spaceship(level);
                     Spaceship.setPosition(new Vec2(Float.parseFloat(tokens[1]), Float.parseFloat(tokens[2])));
                     Spaceship.setLives(Integer.parseInt(tokens[3]));
