@@ -14,7 +14,7 @@ public  class Spaceshipshooting implements MouseListener {
     private GameView view;
 
     private static SoundClip shootingSound;
-
+// sound is private as only this class uses the sound
     public Spaceshipshooting(Spaceship s, GameView g) {
         spaceship = s;
         view = g;
@@ -25,22 +25,23 @@ public  class Spaceshipshooting implements MouseListener {
 
 
     }
-
+// the sound plays when user shoots with mouse
     static {
         try {
             shootingSound = new SoundClip("data/lasergun.wav");
-            // System.out.println("L");
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             System.out.println(e);
         }
     }
 
     @Override
+
+    // user can shoot using mouse click feature
     public void mouseClicked(MouseEvent Event){
         Vec2 worldPoint = view.viewToWorld(Event.getPoint());
         spaceship.shoot(worldPoint);
-        System.out.println("shoot");
-        shootingSound.play();
+        System.out.println("shoot");//shoot is printed once shooted
+        shootingSound.play();// music is played
     }
 
     @Override
