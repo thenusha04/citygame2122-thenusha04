@@ -122,7 +122,7 @@ public class GameSaverLoader {
                     asteroid.setPosition(new Vec2(Float.parseFloat(tokens[1]), Float.parseFloat(tokens[2])));
                     //puts the asteroid back in the postion as it was saved as and level
                 } else if (tokens[0].equals("Spaceship")) {
-                    //puts the alien back in the postion as it was saved as and level
+                    //puts the spaceship back in the postion as it was saved as and level
                     Spaceship Spaceship = new Spaceship(level);
                     Spaceship.setPosition(new Vec2(Float.parseFloat(tokens[1]), Float.parseFloat(tokens[2])));
                     Spaceship.setLives(Integer.parseInt(tokens[3]));
