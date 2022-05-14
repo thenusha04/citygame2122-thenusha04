@@ -17,6 +17,7 @@ public class Level1 extends GameLevel {
 
     public Level1(Game game) {
         super(game);
+
         background = new ImageIcon("data/background.gif").getImage();
         // make the character
         getSpaceship().setPosition(new Vec2(-9.5f, -3.5f));
@@ -107,7 +108,7 @@ public class Level1 extends GameLevel {
         alien2 alien21 = new alien2(this);
         alien21.setPosition(new Vec2(10, 1));
     }
-
+   // stops the music when the level is over
     public void stopMusic() {
         gameMusic.stop();
     }

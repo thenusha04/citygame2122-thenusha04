@@ -17,13 +17,14 @@ public class Level4  extends GameLevel {
 
     public Level4(Game game) {
         super(game);
+        //level4 background image
+
         background = new ImageIcon("data/level4bg.gif").getImage();
         // make the character
         getSpaceship().setPosition(new Vec2(-9.5f, -3.5f));
-        //spaceship.setGravityScale(0);
         getSpaceship().addCollisionListener(new AlienPickup(getSpaceship()));
 
-
+//level4 background music
         try {
             gameMusic = new SoundClip("data/bgs4.wav");   // Open an audio input stream
             gameMusic.loop();                              // Set it to continous playback (looping)
@@ -39,7 +40,7 @@ public class Level4  extends GameLevel {
         StaticBody platform = new StaticBody(this, platformShape);
         platform.setPosition(new Vec2(-9.5f, -5.5f));
         platform.addImage(new BodyImage("data/rocket.png", 3));
-
+// uses the rocket image and puts the platform in the given vector position
 
         StaticBody platform1 = new StaticBody(this, platformShape);
         platform1.setPosition(new Vec2(-6f, -3.5f));
@@ -109,40 +110,40 @@ public class Level4  extends GameLevel {
 
         alien alien5 = new alien(this);
         alien5.setPosition(new Vec2(10, -2));
-        //alien.setGravityScale(0);
+
 
         alien alien1 = new alien(this);
         alien1.setPosition(new Vec2(-10, -1));
-        //alien2.setGravityScale(0);
+
 
         alien alien2 = new alien(this);
         alien2.setPosition(new Vec2(-5, 1));
-        //  alien3.setGravityScale(0);
+
 
         alien alien4 = new alien(this);
         alien4.setPosition(new Vec2(6, 1));
-        // alien4.setGravityScale(0);
+
 
         alien alien3 = new alien(this);
         alien3.setPosition(new Vec2(1, 2));
         coins coins2 = new coins(this);
         coins2.setPosition(new Vec2(5, 3));
-        //alien2.setGravityScale(0);
+
 
         coins coins3 = new coins(this);
         coins3.setPosition(new Vec2(-2, 3));
-        //  alien3.setGravityScale(0);
+
 
         coins coins4 = new coins(this);
         coins4.setPosition(new Vec2(-7, 0));
-        // alien4.setGravityScale(0);
+
 
         coins coins5 = new coins(this);
         coins5.setPosition(new Vec2(2, 4));
 
         coins coins = new coins(this);
         coins.setPosition(new Vec2(9, -3));
-        //alien.setGravityScale(0);
+
 
         alien2 alien21 = new alien2(this);
         alien21.setPosition(new Vec2(10, 1));
@@ -152,6 +153,7 @@ public class Level4  extends GameLevel {
 
     @Override
     public boolean isComplete() {
+        // for the level to be complete the spaceship must collect five aliens and coins
         if (getSpaceship().getAlien()>=5 && getSpaceship().getCoins()>=5)
             return true;
         else

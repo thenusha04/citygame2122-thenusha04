@@ -16,14 +16,14 @@ public class Level3 extends GameLevel {
     private SoundClip gameMusic;
 
     public Level3(Game game) {
+        //level3 background image
         super(game);
         background = new ImageIcon("data/level3bg.gif").getImage();
         // make the character
         getSpaceship().setPosition(new Vec2(-9.5f, -3.5f));
-        //spaceship.setGravityScale(0);
         getSpaceship().addCollisionListener(new AlienPickup(getSpaceship()));
 
-
+//level3 background music
         try {
             gameMusic = new SoundClip("data/bgs3.wav");   // Open an audio input stream
             gameMusic.loop();                              // Set it to continous playback (looping)
@@ -39,7 +39,7 @@ public class Level3 extends GameLevel {
         StaticBody platform = new StaticBody(this, platformShape);
         platform.setPosition(new Vec2(-9.5f, -5.5f));
         platform.addImage(new BodyImage("data/star.png", 3));
-
+// uses the star image and put in the given vector position
 
         StaticBody platform1 = new StaticBody(this, platformShape);
         platform1.setPosition(new Vec2(-6f, -3.5f));
@@ -125,31 +125,34 @@ public class Level3 extends GameLevel {
 
         alien alien3 = new alien(this);
         alien3.setPosition(new Vec2(1, 2));
+
         coins coins2 = new coins(this);
         coins2.setPosition(new Vec2(5, 3));
-        //alien2.setGravityScale(0);
+
 
         coins coins3 = new coins(this);
         coins3.setPosition(new Vec2(-2, 3));
-        //  alien3.setGravityScale(0);
+
 
         coins coins4 = new coins(this);
         coins4.setPosition(new Vec2(-7, 0));
-        // alien4.setGravityScale(0);
+
 
         coins coins5 = new coins(this);
         coins5.setPosition(new Vec2(2, 4));
-
+//position of coins for level 3
         coins coins = new coins(this);
         coins.setPosition(new Vec2(9, -3));
-        //alien.setGravityScale(0);
 
+//position of portal
         alien2 alien21 = new alien2(this);
         alien21.setPosition(new Vec2(10, 1));
     }
+    // stops the music when the level is over
     public void  stopMusic() { gameMusic.stop(); }
     @Override
     public boolean isComplete() {
+        // for the level to be complete the spaceship must collect five aliens and coins
         if (getSpaceship().getAlien()>=5 && getSpaceship().getCoins()>=5)
             return true;
         else

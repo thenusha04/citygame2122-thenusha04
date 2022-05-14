@@ -123,7 +123,7 @@ public class Spaceship extends Walker {
      * this method allows the spaceship to shoot projectiles
      * @param target
      */
-
+//this allows the user to point with their mouse in any direction and when they release the projectile shoots in that direction.
     public void shoot(Vec2 target) {
         DynamicBody projectile = new DynamicBody(this.getWorld(), new CircleShape(0.2f));
         projectile.addCollisionListener(new ProjectileCollisionListener());

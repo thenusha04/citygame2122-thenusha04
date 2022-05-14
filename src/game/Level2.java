@@ -16,12 +16,13 @@ public class Level2 extends GameLevel {
     private SoundClip gameMusic;
     public Level2(Game game) {
         super(game);
+        //level2 background image
         background = new ImageIcon("data/level2bg.gif").getImage();
         // make the character
         getSpaceship().setPosition(new Vec2(-9.5f, -3.5f));
         //spaceship.setGravityScale(0);
         getSpaceship().addCollisionListener(new AlienPickup(getSpaceship()));
-
+   //level 2 background music
         try {
           gameMusic = new SoundClip("data/bgs2.wav");   // Open an audio input stream
            gameMusic.loop();                              // Set it to continous playback (looping)
@@ -128,7 +129,7 @@ public class Level2 extends GameLevel {
         alien2 alien21 = new alien2(this);
         alien21.setPosition(new Vec2(10, 5));
     }
-
+    //stops the music when the level is over
     public void  stopMusic() { gameMusic.stop(); }
     @Override
     public boolean isComplete() {
